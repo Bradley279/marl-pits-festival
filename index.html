@@ -1,171 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Marl Pits Festival 2026</title>
-  <meta name="description" content="Marl Pits Festival 2026 – A family-friendly community festival on 2 May 2026." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marl Pits Festival</title>
+
   <style>
-    :root {
-      --bg: #f0fdf4;
-      --card: #ffffff;
-      --accent: #22c55e;
-      --accent-soft: #dcfce7;
-      --text: #064e3b;
-      --muted: #4b5563;
-    }
-
-    * { box-sizing: border-box; }
-
     body {
       margin: 0;
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+      background: #f8f6f2;
+      color: #333;
       line-height: 1.6;
     }
 
     header {
-      padding: 5rem 1.5rem 4rem;
+      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                  url('hero.jpg') center/cover no-repeat;
+      color: white;
+      padding: 90px 20px;
       text-align: center;
-      background: linear-gradient(180deg, #bbf7d0, var(--bg));
     }
 
     header h1 {
-      font-size: clamp(2.5rem, 6vw, 3.5rem);
-      font-weight: 800;
-      margin-bottom: 0.5rem;
+      font-size: 3rem;
+      margin-bottom: 10px;
     }
 
     header p {
-      font-size: 1.1rem;
-      max-width: 650px;
-      margin: 0 auto 2rem;
-      color: var(--muted);
+      font-size: 1.2rem;
+      margin-bottom: 25px;
     }
 
-    .badge {
+    .button {
       display: inline-block;
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--text);
-      font-weight: 600;
-      margin-bottom: 1rem;
+      background: #2e7d32;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background: #256428;
     }
 
     section {
-      padding: 3.5rem 1.5rem;
-      max-width: 1100px;
-      margin: 0 auto;
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
     }
 
-    h2 {
+    section h2 {
+      color: #2e7d32;
+      margin-bottom: 10px;
       font-size: 2rem;
-      margin-bottom: 1rem;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: var(--card);
-      border-radius: 1rem;
-      padding: 1.5rem;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    }
-
-    iframe {
-      width: 100%;
-      height: 320px;
-      border: 0;
-      border-radius: 1rem;
+    ul {
+      padding-left: 20px;
     }
 
     footer {
-      background: #052e16;
-      color: #ecfeff;
+      background: #2e7d32;
+      color: white;
       text-align: center;
-      padding: 2rem 1.5rem;
-      font-size: 0.9rem;
+      padding: 25px 15px;
+      margin-top: 60px;
     }
 
-    footer p { margin: 0.3rem 0; }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-<header>
-  <div class="badge">Family-Friendly Community Festival</div>
-  <h1>Marl Pits Festival 2026</h1>
-  <p>Join us on <strong>Saturday 2 May 2026</strong> for a fun-filled day of music, food, and activities for all ages at the historic Marl Pits.</p>
-</header>
+  <header>
+    <h1>Marl Pits Festival</h1>
+    <p>Music • Food • Community • Family Fun</p>
+    <a href="#about" class="button">Find Out More</a>
+  </header>
 
-<section>
-  <h2>📍 Location</h2>
-  <div class="grid">
-    <div class="card">
-      <p><strong>Marl Pits</strong><br>
-      Rossendale, Lancashire</p>
-      <p>Set in beautiful open countryside, Marl Pits offers plenty of space for families to relax, explore and enjoy the festival safely.</p>
-    </div>
-    <div class="card">
-      <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Marl%20Pits%20Rossendale&output=embed"></iframe>
-    </div>
-  </div>
-</section>
+  <section id="about">
+    <h2>About the Festival</h2>
+    <p>
+      Marl Pits Festival is a free, family-friendly community event celebrating
+      local music, food, and activities in the heart of Rossendale.
+      Everyone is welcome for a relaxed day of fun by the water.
+    </p>
+  </section>
 
-<section>
-  <h2>🍔 Food & Drink</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Street Food</h3>
-      <p>A hand-picked selection of local food traders serving burgers, wraps, pizzas, and vegetarian options.</p>
-    </div>
-    <div class="card">
-      <h3>Family Favourites</h3>
-      <p>Kid-friendly meals, snacks, ice cream, and sweet treats available all day.</p>
-    </div>
-    <div class="card">
-      <h3>Drinks</h3>
-      <p>Soft drinks, hot drinks, and a small licensed bar offering local ales and ciders for adults.</p>
-    </div>
-  </div>
-</section>
+  <section>
+    <h2>What’s On</h2>
+    <ul>
+      <li>Live music and performances</li>
+      <li>Food and drink stalls</li>
+      <li>Children’s activities</li>
+      <li>Local community groups and charities</li>
+    </ul>
+  </section>
 
-<section>
-  <h2>🏟️ Festival Facilities</h2>
-  <p>Plenty of space and activities across the Marl Pits site, making it a safe and exciting place for families to enjoy the day.</p>
+  <section>
+    <h2>Where & When</h2>
+    <p><strong>Location:</strong> Marl Pits, Rossendale</p>
+    <p><strong>Date:</strong> Saturday 2 May</p>
+    <p><strong>Entry:</strong> Free</p>
+  </section>
 
-  <div class="grid">
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1600679472829-3044539ce8ed?auto=format&fit=crop&w=900&q=60" alt="3G astro pitch" style="width:100%; border-radius:0.75rem; margin-bottom:0.75rem;">
-      <h3>3G Astro Pitches</h3>
-      <p>Modern all-weather 3G pitches used for games, activities and family-friendly sports sessions throughout the day.</p>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1600891965050-df5f04a4a2a3?auto=format&fit=crop&w=900&q=60" alt="Indoor darts and games" style="width:100%; border-radius:0.75rem; margin-bottom:0.75rem;">
-      <h3>Sports Labs & Darts</h3>
-      <p>Indoor sports labs hosting relaxed games like darts and activities for older kids and adults.</p>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?auto=format&fit=crop&w=900&q=60" alt="Large grass field" style="width:100%; border-radius:0.75rem; margin-bottom:0.75rem;">
-      <h3>Main Grass Fields</h3>
-      <p>Wide open green space for picnics, performances, kids play areas and relaxing between activities.</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Marl Pits Festival</p>
-  <p>Saturday 2 May 2026 • Family Friendly • Community Run</p>
-</footer>
+  <footer>
+    <p>© Marl Pits Festival</p>
+    <p>Follow us on social media for updates</p>
+  </footer>
 
 </body>
 </html>
