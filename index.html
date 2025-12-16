@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Fredoka+One&display=swap" rel="stylesheet">
 
   <style>
-    /* Basic Reset */
     * {margin:0; padding:0; box-sizing:border-box;}
 
     body {
@@ -26,17 +25,24 @@
       color: white;
       padding: 120px 20px;
       text-align: center;
+      transition: all 0.5s ease;
     }
 
     header h1 {
       font-family: 'Fredoka One', cursive;
       font-size: 4rem;
       margin-bottom: 15px;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInDown 1s forwards;
     }
 
     header p {
       font-size: 1.3rem;
       margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInDown 1s forwards 0.5s;
     }
 
     .button {
@@ -90,6 +96,14 @@
       max-width: 1000px;
       margin: 60px auto;
       padding: 0 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    section.active {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     section h2 {
@@ -118,7 +132,7 @@
     .gallery img {
       width: 100%;
       border-radius: 10px;
-      transition: 0.3s;
+      transition: transform 0.3s;
     }
 
     .gallery img:hover {
@@ -147,6 +161,41 @@
       color: #ff9800;
     }
 
+    /* Modals */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 200;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @keyframes fadeInDown {
+      to {opacity: 1; transform: translateY(0);}
+    }
+
     @media (max-width: 600px) {
       header h1 {font-size: 2.8rem;}
       section h2 {font-size: 2rem;}
@@ -160,10 +209,9 @@
   <nav>
     <ul>
       <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#events">What’s On</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#location">Location</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#shop" id="shopBtn">Shop</a></li>
+      <li><a href="#help" id="helpBtn">Help</a></li>
     </ul>
   </nav>
 
@@ -175,45 +223,34 @@
     <div id="countdown"></div>
   </header>
 
-  <!-- About Section -->
-  <section id="about">
-    <h2>About the Festival</h2>
+  <!-- About Us Section -->
+  <section id="about" class="fade">
+    <h2>About Us</h2>
     <p>
       Marl Pits Festival is a free, family-friendly community event celebrating local music, food, and activities in Rossendale.
-      Enjoy a fun-filled day by the water with your friends and family!
+      Join us for a fun-filled day by the water with your friends and family!
     </p>
   </section>
 
-  <!-- Events Section -->
-  <section id="events">
-    <h2>What’s On</h2>
-    <ul>
-      <li>Live music and performances</li>
-      <li>Food and drink stalls</li>
-      <li>Children’s activities</li>
-      <li>Local community groups and charities</li>
-    </ul>
-  </section>
-
-  <!-- Gallery Section -->
-  <section id="gallery">
-    <h2>Gallery</h2>
-    <div class="gallery">
-      <img src="gallery1.jpg" alt="Festival crowd">
-      <img src="gallery2.jpg" alt="Live music">
-      <img src="gallery3.jpg" alt="Food stalls">
-      <img src="gallery4.jpg" alt="Family activities">
+  <!-- Shop Modal Section -->
+  <div id="shopModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="shopClose">&times;</span>
+      <h2>Shop</h2>
+      <p>Check out our official festival merchandise! T-shirts, hats, and souvenirs.</p>
+      <a href="#" class="button">Visit Shop</a>
     </div>
-  </section>
+  </div>
 
-  <!-- Location Section -->
-  <section id="location">
-    <h2>Where & When</h2>
-    <p><strong>Location:</strong> Marl Pits, Rossendale</p>
-    <p><strong>Date:</strong> Saturday 2 May</p>
-    <p><strong>Entry:</strong> Free</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2381.123456789!2d-2.311234567!3d53.70456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b1c2b34f5a7a3%3A0x1234567890abcdef!2sMarl+Pits!5e0!3m2!1sen!2suk!4v1600000000000" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-  </section>
+  <!-- Help Modal Section -->
+  <div id="helpModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="helpClose">&times;</span>
+      <h2>Help</h2>
+      <p>Need assistance? FAQs, contact information, and accessibility guidance.</p>
+      <a href="#" class="button">Get Help</a>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer>
@@ -228,26 +265,39 @@
 
   <!-- Countdown Script -->
   <script>
-    // Set the date of the festival
+    // Countdown
     const festivalDate = new Date('May 2, 2025 10:00:00').getTime();
     const countdownEl = document.getElementById('countdown');
-
-    const countdown = setInterval(() => {
+    setInterval(() => {
       const now = new Date().getTime();
       const distance = festivalDate - now;
-
-      if (distance < 0) {
-        clearInterval(countdown);
-        countdownEl.innerHTML = 'Festival is Live!';
-      } else {
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        countdownEl.innerHTML = `Festival starts in ${days}d ${hours}h ${minutes}m ${seconds}s`;
+      if(distance < 0) countdownEl.innerHTML='Festival is Live!';
+      else {
+        const d=Math.floor(distance/(1000*60*60*24));
+        const h=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+        const m=Math.floor((distance%(1000*60*60))/(1000*60));
+        const s=Math.floor((distance%(1000*60))/1000);
+        countdownEl.innerHTML=`Festival starts in ${d}d ${h}h ${m}m ${s}s`;
       }
-    }, 1000);
+    },1000);
+
+    // Scroll animations
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){entry.target.classList.add('active');}
+      });
+    }, {threshold: 0.2});
+    sections.forEach(sec => observer.observe(sec));
+
+    // Modals
+    const shopModal=document.getElementById('shopModal');
+    const helpModal=document.getElementById('helpModal');
+    document.getElementById('shopBtn').onclick = ()=> shopModal.style.display='block';
+    document.getElementById('helpBtn').onclick = ()=> helpModal.style.display='block';
+    document.getElementById('shopClose').onclick = ()=> shopModal.style.display='none';
+    document.getElementById('helpClose').onclick = ()=> helpModal.style.display='none';
+    window.onclick = e=> {if(e.target==shopModal) shopModal.style.display='none'; if(e.target==helpModal) helpModal.style.display='none';};
   </script>
 
 </body>
