@@ -19,7 +19,6 @@
       scroll-behavior: smooth;
     }
 
-    /* Header / Hero */
     header {
       background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('hero.jpg') center/cover no-repeat;
       color: white;
@@ -61,7 +60,6 @@
       transform: scale(1.05);
     }
 
-    /* Navigation Bar */
     nav {
       position: sticky;
       top: 0;
@@ -91,7 +89,6 @@
       color: #ffeb3b;
     }
 
-    /* Sections */
     section {
       max-width: 1000px;
       margin: 60px auto;
@@ -118,94 +115,33 @@
       margin-bottom: 20px;
     }
 
-    ul {
-      padding-left: 20px;
-    }
+    ul {padding-left: 20px;}
 
-    /* Gallery */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-    }
+    .gallery {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;}
 
-    .gallery img {
-      width: 100%;
-      border-radius: 10px;
-      transition: transform 0.3s;
-    }
+    .gallery img {width: 100%; border-radius: 10px; transition: transform 0.3s;}
 
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
+    .gallery img:hover {transform: scale(1.05);}
 
-    /* Footer */
-    footer {
-      background: #2e7d32;
-      color: white;
-      text-align: center;
-      padding: 30px 15px;
-    }
+    footer {background: #2e7d32; color: white; text-align: center; padding: 30px 15px;}
 
-    footer a {
-      color: #ffeb3b;
-      text-decoration: none;
-      margin: 0 10px;
-    }
+    footer a {color: #ffeb3b; text-decoration: none; margin: 0 10px;}
 
-    /* Countdown Timer */
-    #countdown {
-      text-align: center;
-      font-size: 2rem;
-      margin-top: 20px;
-      color: #ff9800;
-    }
+    #countdown {text-align: center; font-size: 2rem; margin-top: 20px; color: #ff9800;}
 
-    /* Modals */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 200;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.8);
-    }
+    .modal {display: none; position: fixed; z-index: 200; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8);}
 
-    .modal-content {
-      background-color: #fefefe;
-      margin: 10% auto;
-      padding: 20px;
-      border-radius: 10px;
-      width: 80%;
-      max-width: 600px;
-      text-align: center;
-    }
+    .modal-content {background-color: #fefefe; margin: 10% auto; padding: 20px; border-radius: 10px; width: 80%; max-width: 600px; text-align: center;}
 
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+    .close {color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;}
 
-    @keyframes fadeInDown {
-      to {opacity: 1; transform: translateY(0);}
-    }
+    @keyframes fadeInDown {to {opacity: 1; transform: translateY(0);}}
 
-    @media (max-width: 600px) {
-      header h1 {font-size: 2.8rem;}
-      section h2 {font-size: 2rem;}
-    }
+    @media (max-width: 600px) {header h1 {font-size: 2.8rem;} section h2 {font-size: 2rem;}}
   </style>
 </head>
 
 <body>
-
-  <!-- Navigation -->
   <nav>
     <ul>
       <li><a href="#home">Home</a></li>
@@ -215,7 +151,6 @@
     </ul>
   </nav>
 
-  <!-- Hero Header -->
   <header id="home">
     <h1>Marl Pits Festival</h1>
     <p>Music • Food • Community • Family Fun</p>
@@ -223,16 +158,11 @@
     <div id="countdown"></div>
   </header>
 
-  <!-- About Us Section -->
   <section id="about" class="fade">
     <h2>About Us</h2>
-    <p>
-      Marl Pits Festival is a free, family-friendly community event celebrating local music, food, and activities in Rossendale.
-      Join us for a fun-filled day by the water with your friends and family!
-    </p>
+    <p>Marl Pits Festival is a free, family-friendly community event celebrating music, food, and activities in Rossendale.</p>
   </section>
 
-  <!-- Shop Modal Section -->
   <div id="shopModal" class="modal">
     <div class="modal-content">
       <span class="close" id="shopClose">&times;</span>
@@ -242,51 +172,47 @@
     </div>
   </div>
 
-  <!-- Help Modal Section -->
   <div id="helpModal" class="modal">
     <div class="modal-content">
       <span class="close" id="helpClose">&times;</span>
       <h2>Help</h2>
-      <p>Need assistance? FAQs, contact information, and accessibility guidance.</p>
+      <p>Need assistance? FAQs, contact info, and accessibility guidance.</p>
       <a href="#" class="button">Get Help</a>
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
-    <p>© Marl Pits Festival 2025</p>
-    <p>
-      Follow us: 
-      <a href="#">Facebook</a> | 
-      <a href="#">Instagram</a> | 
-      <a href="#">Twitter</a>
-    </p>
+    <p>© Marl Pits Festival 2026</p>
+    <p>Follow us: <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a></p>
   </footer>
 
-  <!-- Countdown Script -->
   <script>
-    // Countdown
-    const festivalDate = new Date('May 2, 2025 10:00:00').getTime();
+    // Real-time GMT countdown
     const countdownEl = document.getElementById('countdown');
-    setInterval(() => {
+    const festivalDateGMT = new Date('May 2, 2026 00:00:00 GMT').getTime();
+
+    function updateCountdown() {
       const now = new Date().getTime();
-      const distance = festivalDate - now;
-      if(distance < 0) countdownEl.innerHTML='Festival is Live!';
-      else {
-        const d=Math.floor(distance/(1000*60*60*24));
-        const h=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-        const m=Math.floor((distance%(1000*60*60))/(1000*60));
-        const s=Math.floor((distance%(1000*60))/1000);
-        countdownEl.innerHTML=`Festival starts in ${d}d ${h}h ${m}m ${s}s`;
+      const distance = festivalDateGMT - now;
+      if(distance < 0){
+        countdownEl.innerHTML = 'Festival is Live!';
+        clearInterval(interval);
+      } else {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        countdownEl.innerHTML = `Festival starts in ${days}d ${hours}h ${minutes}m ${seconds}s (GMT)`;
       }
-    },1000);
+    }
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
 
     // Scroll animations
     const sections = document.querySelectorAll('section');
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){entry.target.classList.add('active');}
-      });
+      entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('active'); });
     }, {threshold: 0.2});
     sections.forEach(sec => observer.observe(sec));
 
@@ -299,6 +225,5 @@
     document.getElementById('helpClose').onclick = ()=> helpModal.style.display='none';
     window.onclick = e=> {if(e.target==shopModal) shopModal.style.display='none'; if(e.target==helpModal) helpModal.style.display='none';};
   </script>
-
 </body>
 </html>
